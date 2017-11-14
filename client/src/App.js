@@ -3,6 +3,37 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+constructor(props){
+  super(props);
+  this.state = {
+    userName:'',
+    password:''
+  }
+}
+sendData(){
+ fetch('http://127.0.0.1:5000/login', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userName:this.state.userName,
+          password:this.state.password
+        })
+      })
+        .then(response => {
+          return response.json();
+        })
+        .then(responseJson => {
+          console.log("Successssssssss !!!")
+        })
+        .catch(error => {
+           console.log("Eroooooooooooooooooor !!!")
+        });
+    } 
+
   render() {
     return (
       <div className="App">
@@ -11,7 +42,9 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>I'm Doaaaaa</code> and save to reload.
+        First Name:  <input type="text" name="userName" onChange={(val) => this.setState({userName:val})}></input><br/>
+        password :  <input type="password" name="password" onChange={(val) => this.setState({password:val})}></input><br/>
+                <input type="submit" value="Login" onClick={this.sendData.bind(this)}></input><br/>
         </p>
       </div>
     );
