@@ -1,0 +1,15 @@
+click==6.7
+confusable-homoglyphs==2.0.2
+Django==1.11.7
+django-registration==2.3
+Flask==0.12.2
+Flask-WTF==0.14.2
+gunicorn==19.7.1
+itsdangerous==0.24
+Jinja2==2.10
+MarkupSafe==1.0
+mysql-connector-python-rf==2.2.2
+passlib==1.7.1
+pytz==2017.3
+Werkzeug==0.12.2
+WTForms==2.1

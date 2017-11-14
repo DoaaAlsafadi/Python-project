@@ -7,12 +7,12 @@ app = Flask(__name__)
 
 mariadb_connection = mariadb.connect(user='root', database='Articles')
 cursor = mariadb_connection.cursor()
+Bages = [("http://www.purplemath.com/modules/sqrcircle.htm"),("http://www.purplemath.com/modules/sqrellps.htm")]
 
-
-
-
-sql = "insert into article VALUES(3,'dghffdhg')"
+sql = "insert into article(url) VALUES('http://www.purplemath.com/modules/sqrcircle.htm')"
 cursor.execute(sql)
+
+print(remaining_rows)
 mariadb_connection.commit()
 mariadb_connection.close()
    
@@ -20,13 +20,7 @@ mariadb_connection.close()
 def index():         
  return render_template('home.html')  
 
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
-# Bages = ["sqrquad","vertx","sqrcircle","sqrellps","drofsign",
-# "sqrvertx","drofsign","fcns2","absineq"]
+# article
 
 # i=0
 # while (i < len(Bages)):
@@ -34,4 +28,8 @@ if __name__ == '__main__':
 #      htmltext = htmlfile.read()
 #      print (htmltext)
 #      i += 1
+
+
+
+
 
